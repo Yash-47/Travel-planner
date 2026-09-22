@@ -48,7 +48,7 @@ export default function TravelAssistant() {
       const convertedLimit = (budgetLimit * currentRate).toFixed(2);
       
       const systemContext = `
-        You are Roamify's Gemini Travel Assistant.
+        You are Voyager's Gemini Travel Assistant.
         Current Context:
         - Currency: ${currency}
         - Total Budget: ${currency} ${convertedLimit}
@@ -89,7 +89,7 @@ export default function TravelAssistant() {
   };
 
   return (
-    <div className="bg-white border border-slate-200 p-4 rounded-2xl flex flex-col h-[340px] shadow-sm">
+    <div className="bg-white border border-slate-200 p-6 rounded-2xl flex flex-col h-full shadow-sm flex-1">
       <div className="flex items-center justify-between mb-2">
         <h3 className="text-xs font-bold text-slate-700 flex items-center gap-1.5">
           <Sparkles className="w-4 h-4 text-sky-500 animate-pulse" /> Gemini Assistant

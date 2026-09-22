@@ -1,5 +1,4 @@
 import React from 'react';
-import MapCanvas from './components/Map/MapCanvas';
 import DaySelector from './components/Itinerary/DaySelector';
 import Timeline from './components/Itinerary/Timeline';
 import BudgetSummary from './components/Budget/BudgetSummary';
@@ -19,7 +18,7 @@ export default function App() {
             <Compass className="w-6 h-6 animate-[spin_12s_linear_infinite]" />
           </div>
           <div>
-            <h1 className="text-xl font-black tracking-tight bg-gradient-to-r from-sky-600 to-blue-700 bg-clip-text text-transparent m-0">ROAMIFY</h1>
+            <h1 className="text-xl font-black tracking-tight bg-gradient-to-r from-sky-600 to-blue-700 bg-clip-text text-transparent m-0">VOYAGER</h1>
             <p className="text-[11px] text-sky-500 font-semibold tracking-wide flex items-center gap-1">
               <Plane className="w-3 h-3" /> Smart Travel Orchestration Dashboard
             </p>
@@ -31,26 +30,29 @@ export default function App() {
       </header>
 
       {/* Main Dashboard Grid */}
-      <div id="dashboard-workspace-grid" className="flex-1 grid grid-cols-1 lg:grid-cols-12 gap-5 max-w-7xl w-full mx-auto items-stretch">
+      <div id="dashboard-workspace-grid" className="flex-1 grid grid-cols-1 lg:grid-cols-12 gap-6 max-w-7xl w-full mx-auto items-stretch">
         
-        {/* Left Column — Itinerary */}
-        <div className="lg:col-span-4 flex flex-col gap-4 bg-white/70 backdrop-blur-xl border border-white/90 p-4 rounded-2xl shadow-xl shadow-blue-100/50">
-          <DaySelector />
-          <div className="flex-1 overflow-y-auto">
-            <Timeline />
+        {/* Left Column — Itinerary & Budget */}
+        <div className="lg:col-span-5 flex flex-col gap-6">
+          <div className="flex flex-col gap-4 bg-white/70 backdrop-blur-xl border border-white/90 p-5 rounded-2xl shadow-xl shadow-blue-100/50 h-[500px]">
+            <DaySelector />
+            <div className="flex-1 overflow-y-auto">
+              <Timeline />
+            </div>
+          </div>
+          <div className="bg-white/70 backdrop-blur-xl border border-white/90 p-5 rounded-2xl shadow-xl shadow-blue-100/50">
+            <BudgetSummary />
           </div>
         </div>
 
-        {/* Center — Map */}
-        <div className="lg:col-span-5 flex flex-col h-[450px] lg:h-auto min-h-[400px]">
-          <MapCanvas />
-        </div>
-
-        {/* Right Column — Budget & AI */}
-        <div className="lg:col-span-3 flex flex-col gap-4 bg-white/70 backdrop-blur-xl border border-white/90 p-4 rounded-2xl shadow-xl shadow-blue-100/50">
-          <BudgetSummary />
-          <ExpenseList />
-          <TravelAssistant />
+        {/* Right Column — AI Assistant & Expenses */}
+        <div className="lg:col-span-7 flex flex-col gap-6">
+          <div className="flex-1 flex flex-col bg-white/70 backdrop-blur-xl border border-white/90 p-5 rounded-2xl shadow-xl shadow-blue-100/50 min-h-[500px]">
+            <TravelAssistant />
+          </div>
+          <div className="bg-white/70 backdrop-blur-xl border border-white/90 p-5 rounded-2xl shadow-xl shadow-blue-100/50">
+            <ExpenseList />
+          </div>
         </div>
 
       </div>

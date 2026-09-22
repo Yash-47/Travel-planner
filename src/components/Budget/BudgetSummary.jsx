@@ -37,7 +37,7 @@ export default function BudgetSummary() {
       pdf.setTextColor(255, 255, 255);
       pdf.setFontSize(22);
       pdf.setFont('helvetica', 'bold');
-      pdf.text('ROAMIFY TRAVEL REPORT', 14, 18);
+      pdf.text('VOYAGER TRAVEL REPORT', 14, 18);
       pdf.setFontSize(10);
       pdf.setTextColor(129, 140, 248);
       pdf.text(`Single Day Financial Ledger • View Context: Day 0${currentDay}`, 14, 26);
@@ -71,7 +71,7 @@ export default function BudgetSummary() {
           pdf.text(`${convertedCost}`, 170, currentY);
         });
       }
-      pdf.save(`Roamify_Itinerary_Day_0${currentDay}.pdf`);
+      pdf.save(`Voyager_Itinerary_Day_0${currentDay}.pdf`);
     } catch (err) {
       console.error(err);
     }
@@ -87,7 +87,7 @@ export default function BudgetSummary() {
       pdf.setTextColor(255, 255, 255);
       pdf.setFontSize(24);
       pdf.setFont('helvetica', 'bold');
-      pdf.text('ROAMIFY MASTER TRIP LEDGER', 14, 22);
+      pdf.text('VOYAGER MASTER TRIP LEDGER', 14, 22);
       pdf.setFontSize(11);
       pdf.setTextColor(129, 140, 248);
       pdf.text(`Unified Expense Portfolio Across Multi-Day Operations`, 14, 32);
@@ -139,7 +139,7 @@ export default function BudgetSummary() {
           });
         }
       });
-      pdf.save(`Roamify_Master_FullTrip_Report.pdf`);
+      pdf.save(`Voyager_Master_FullTrip_Report.pdf`);
     } catch (err) {
       console.error(err);
     }
