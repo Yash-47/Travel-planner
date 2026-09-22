@@ -1,4 +1,4 @@
-﻿import React, { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Polyline, useMap } from 'react-leaflet';
 import { useTripStore } from '../../store/tripStore';
 import L from 'leaflet';
@@ -46,16 +46,16 @@ export default function MapCanvas() {
   const pathCoordinates = activeItems.map(item => [item.lat, item.lng]);
 
   return (
-    <div className="w-full h-full relative rounded-2xl overflow-hidden border border-slate-800 shadow-2xl z-0">
+    <div className="w-full h-full relative rounded-2xl overflow-hidden border border-sky-200 shadow-2xl shadow-blue-100/50 z-0">
       <MapContainer 
         center={defaultCenter} 
         zoom={13} 
-        style={{ width: '100%', height: '100%', background: '#0b0f19' }}
+        style={{ width: '100%', height: '100%', background: '#e8f4fd' }}
         zoomControl={false}
       >
-        {/* Bulletproof, Ultra-Fast Dark Street Tile Provider URL String */}
+        {/* Bright light tile provider for the new light theme */}
         <TileLayer
-          url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
+          url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
           attribution='&copy; OpenStreetMap &copy; CARTO'
           maxZoom={20}
           subdomains="abcd"
@@ -76,12 +76,12 @@ export default function MapCanvas() {
         {pathCoordinates.length > 1 && (
           <Polyline 
             positions={pathCoordinates} 
-            pathOptions={{ color: '#6366f1', weight: 4, opacity: 0.85 }} 
+            pathOptions={{ color: '#0ea5e9', weight: 4, opacity: 0.9 }} 
           />
         )}
       </MapContainer>
 
-      <div className="absolute bottom-4 left-4 bg-slate-950/90 backdrop-blur-md px-3 py-1.5 rounded-lg border border-slate-800 text-[10px] text-indigo-400 font-mono z-[1000]">
+      <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1.5 rounded-lg border border-sky-200 text-[10px] text-sky-600 font-mono z-[1000] shadow-sm">
         🟢 OPENSTREETMAP ENGINE LIVE (FREE)
       </div>
     </div>

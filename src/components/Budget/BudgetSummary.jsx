@@ -25,7 +25,7 @@ export default function BudgetSummary() {
     value: parseFloat(categoryTotals[key].toFixed(2)),
   }));
 
-  const COLORS = ['#6366f1', '#10b981', '#f59e0b', '#ec4899'];
+  const COLORS = ['#0ea5e9', '#10b981', '#f59e0b', '#ec4899'];
 
   const handleExportCurrentDayPDF = () => {
     try {
@@ -146,22 +146,21 @@ export default function BudgetSummary() {
   };
 
   return (
-    <div className="bg-slate-900 p-4 rounded-2xl border border-slate-800 space-y-4 text-left">
+    <div className="bg-white border border-slate-200 p-4 rounded-2xl space-y-4 text-left shadow-sm">
       <div className="flex justify-between items-center">
-        <h3 className="text-xs font-bold text-slate-300 flex items-center gap-1.5">
-          <DollarSign className="w-4 h-4 text-emerald-400" /> Financial Dashboard
+        <h3 className="text-xs font-bold text-slate-600 flex items-center gap-1.5">
+          <DollarSign className="w-4 h-4 text-emerald-500" /> Financial Dashboard
         </h3>
         
-        {/* FIX: Styled drop-down layer container to enforce background visibility configurations natively */}
-        <div className="flex items-center gap-1.5 bg-slate-950 px-2 py-1 rounded-lg border border-slate-800">
-          <Globe className="w-3 h-3 text-indigo-400" />
+        <div className="flex items-center gap-1.5 bg-sky-50 px-2 py-1 rounded-lg border border-sky-200">
+          <Globe className="w-3 h-3 text-sky-500" />
           <select 
             value={currency} 
             onChange={(e) => setCurrency(e.target.value)}
-            className="bg-slate-950 text-[10px] text-white outline-none border-none font-bold cursor-pointer focus:ring-0"
+            className="bg-sky-50 text-[10px] text-slate-700 outline-none border-none font-bold cursor-pointer focus:ring-0"
           >
             {Object.keys(exchangeRates).map(cur => (
-              <option key={cur} value={cur} className="bg-slate-950 text-white font-medium py-1">
+              <option key={cur} value={cur} className="bg-white text-slate-700 font-medium py-1">
                 {cur}
               </option>
             ))}
@@ -173,19 +172,19 @@ export default function BudgetSummary() {
         <div className="space-y-2">
           <div>
             <p className="text-[9px] text-slate-400 font-medium uppercase tracking-wider">Total Expenses</p>
-            <p className={`text-lg font-black ${isOverBudget ? 'text-rose-400' : 'text-emerald-400'}`}>
+            <p className={`text-lg font-black ${isOverBudget ? 'text-rose-500' : 'text-emerald-600'}`}>
               {currency} {convertedSpent}
             </p>
           </div>
           <div>
             <p className="text-[9px] text-slate-400 font-medium uppercase tracking-wider">Threshold Limit</p>
-            <p className="text-xs font-bold text-slate-200">{currency} {convertedLimit}</p>
+            <p className="text-xs font-bold text-slate-700">{currency} {convertedLimit}</p>
           </div>
         </div>
 
         <div className="w-full h-24 flex justify-center items-center">
           {chartData.length === 0 ? (
-            <p className="text-[10px] text-slate-500 italic">No cost ledger tracked</p>
+            <p className="text-[10px] text-slate-400 italic">No cost ledger tracked</p>
           ) : (
             <ResponsiveContainer width="100%" height="100%">
               <PieChart>
@@ -194,7 +193,7 @@ export default function BudgetSummary() {
                     <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                   ))}
                 </Pie>
-                <Tooltip contentStyle={{ background: '#0f172a', borderColor: '#334155', fontSize: '10px', color: '#fff' }} />
+                <Tooltip contentStyle={{ background: '#ffffff', borderColor: '#e2e8f0', fontSize: '10px', color: '#334155', borderRadius: '8px', boxShadow: '0 4px 12px rgba(0,0,0,0.08)' }} />
               </PieChart>
             </ResponsiveContainer>
           )}
@@ -202,11 +201,11 @@ export default function BudgetSummary() {
       </div>
 
       <div className="space-y-1">
-        <div className="w-full bg-slate-950 rounded-full h-1.5 overflow-hidden border border-slate-800">
-          <div className={`h-full transition-all duration-500 ${isOverBudget ? 'bg-rose-500' : 'bg-emerald-500'}`} style={{ width: `${progressPercent}%` }} />
+        <div className="w-full bg-sky-100 rounded-full h-2 overflow-hidden">
+          <div className={`h-full transition-all duration-500 rounded-full ${isOverBudget ? 'bg-rose-500' : 'bg-gradient-to-r from-sky-400 to-emerald-500'}`} style={{ width: `${progressPercent}%` }} />
         </div>
         {isOverBudget && (
-          <div className="flex items-center gap-1.5 text-[9px] text-rose-400 bg-rose-500/10 p-2 rounded-lg mt-1">
+          <div className="flex items-center gap-1.5 text-[9px] text-rose-600 bg-rose-50 border border-rose-200 p-2 rounded-lg mt-1">
             <AlertCircle className="w-3 h-3 shrink-0" />
             <span>Warning: Budget limit exceeded.</span>
           </div>
@@ -216,13 +215,13 @@ export default function BudgetSummary() {
       <div className="grid grid-cols-1 gap-2 pt-1">
         <button 
           onClick={handleExportCurrentDayPDF} 
-          className="w-full bg-slate-950 border border-slate-800 hover:border-indigo-500 hover:bg-indigo-600/10 text-slate-300 hover:text-white flex items-center justify-center gap-2 py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer"
+          className="w-full bg-slate-50 border border-slate-200 hover:border-sky-400 hover:bg-sky-50 text-slate-600 hover:text-sky-700 flex items-center justify-center gap-2 py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer"
         >
-          <Download className="w-3.5 h-3.5 text-indigo-400" /> Download Day 0{currentDay} Sheet
+          <Download className="w-3.5 h-3.5 text-sky-500" /> Download Day 0{currentDay} Sheet
         </button>
         <button 
           onClick={handleExportAllDaysPDF} 
-          className="w-full bg-indigo-600 hover:bg-indigo-500 text-white flex items-center justify-center gap-2 py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer shadow-md shadow-indigo-600/10"
+          className="w-full bg-gradient-to-br from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white flex items-center justify-center gap-2 py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer shadow-md shadow-blue-300/30"
         >
           <FileText className="w-3.5 h-3.5" /> Export Full Trip Ledger (All Days)
         </button>

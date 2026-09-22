@@ -89,29 +89,29 @@ export default function TravelAssistant() {
   };
 
   return (
-    <div className="bg-slate-900/80 border border-slate-800 p-4 rounded-2xl flex flex-col h-[340px]">
+    <div className="bg-white border border-slate-200 p-4 rounded-2xl flex flex-col h-[340px] shadow-sm">
       <div className="flex items-center justify-between mb-2">
-        <h3 className="text-xs font-bold text-slate-200 flex items-center gap-1.5">
-          <Sparkles className="w-4 h-4 text-indigo-400 animate-pulse" /> Gemini Assistant
+        <h3 className="text-xs font-bold text-slate-700 flex items-center gap-1.5">
+          <Sparkles className="w-4 h-4 text-sky-500 animate-pulse" /> Gemini Assistant
         </h3>
-        <span className="text-[9px] bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 px-1.5 py-0.5 rounded font-mono">
+        <span className="text-[9px] bg-sky-50 text-sky-600 border border-sky-200 px-1.5 py-0.5 rounded font-mono font-semibold">
           AI POWERED
         </span>
       </div>
       
       {!apiKey ? (
         <div className="flex-1 flex flex-col items-center justify-center space-y-4">
-          <Key className="w-8 h-8 text-slate-500" />
-          <p className="text-xs text-slate-400 text-center px-4">Enter your Gemini API Key to activate the AI travel assistant.</p>
+          <Key className="w-8 h-8 text-slate-300" />
+          <p className="text-xs text-slate-500 text-center px-4">Enter your Gemini API Key to activate the AI travel assistant.</p>
           <form onSubmit={handleSetKey} className="flex gap-2 w-full px-2">
             <input
               type="password"
               value={keyInput}
               onChange={(e) => setKeyInput(e.target.value)}
               placeholder="AIzaSy..."
-              className="flex-1 bg-slate-950 border border-slate-800 rounded-xl p-2 text-xs text-white outline-none focus:border-indigo-500"
+              className="flex-1 bg-slate-50 border border-sky-200 rounded-xl p-2 text-xs text-slate-700 outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-100 placeholder:text-slate-400"
             />
-            <button type="submit" className="bg-indigo-600 hover:bg-indigo-500 px-3 py-2 rounded-xl text-white text-xs font-semibold cursor-pointer">
+            <button type="submit" className="bg-gradient-to-br from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 px-3 py-2 rounded-xl text-white text-xs font-semibold cursor-pointer shadow-sm">
               Save
             </button>
           </form>
@@ -122,12 +122,12 @@ export default function TravelAssistant() {
           <div className="flex-1 overflow-y-auto space-y-2 mb-2 pr-1 text-[11px] scrollbar-thin">
             {chatHistory.map((msg, idx) => (
               <div key={idx} className={`p-2 rounded-xl max-w-[88%] break-words whitespace-pre-line ${
-                msg.role === 'user' ? 'bg-indigo-600 ml-auto text-white' : 'bg-slate-950 text-slate-300 border border-slate-800'
+                msg.role === 'user' ? 'bg-gradient-to-br from-sky-500 to-blue-600 ml-auto text-white shadow-sm' : 'bg-slate-50 text-slate-700 border border-slate-200'
               }`}>
                 {msg.parts && msg.parts[0] ? msg.parts[0].text : ""}
               </div>
             ))}
-            {loading && <div className="text-indigo-400 italic text-[10px] animate-pulse">Generating response...</div>}
+            {loading && <div className="text-sky-500 italic text-[10px] animate-pulse">Generating response...</div>}
             <div ref={messagesEndRef} />
           </div>
 
@@ -138,7 +138,7 @@ export default function TravelAssistant() {
                 key={idx}
                 type="button"
                 onClick={() => { setInput(''); handleSend(q); }}
-                className="text-[9px] bg-slate-950 hover:bg-slate-800 text-slate-400 hover:text-indigo-300 border border-slate-800/80 px-2 py-1 rounded-md transition-all cursor-pointer truncate max-w-[160px]"
+                className="text-[9px] bg-sky-50 hover:bg-sky-100 text-sky-600 hover:text-sky-700 border border-sky-200 px-2 py-1 rounded-md transition-all cursor-pointer truncate max-w-[160px] font-medium"
               >
                 {q}
               </button>
@@ -152,9 +152,9 @@ export default function TravelAssistant() {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Ask about travel costs, budget status..."
-              className="flex-1 bg-slate-950 border border-slate-800 rounded-xl p-2 text-xs text-white outline-none focus:border-indigo-500"
+              className="flex-1 bg-slate-50 border border-sky-200 rounded-xl p-2 text-xs text-slate-700 outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-100 placeholder:text-slate-400"
             />
-            <button type="submit" disabled={loading} className="bg-indigo-600 hover:bg-indigo-500 p-2 rounded-xl text-white cursor-pointer disabled:opacity-40">
+            <button type="submit" disabled={loading} className="bg-gradient-to-br from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 p-2 rounded-xl text-white cursor-pointer disabled:opacity-40 shadow-sm">
               <Send className="w-3.5 h-3.5" />
             </button>
           </form>

@@ -4,8 +4,8 @@ export const useTripStore = create((set, get) => ({
   user: null,
   currentDay: 1,
   days: [1, 2, 3],
-  budgetLimit: 1500,
-  currency: 'USD',
+  budgetLimit: 125000,
+  currency: 'INR',
   
   exchangeRates: { 
     USD: 1, 
@@ -18,9 +18,9 @@ export const useTripStore = create((set, get) => ({
   },
 
   itinerary: [
-    { id: '1', day: 1, time: '09:00 AM', title: 'Central Station, Nagpur', cost: 50, category: 'Transport', lat: 21.1523, lng: 79.0882 },
-    { id: '2', day: 1, time: '11:30 AM', title: 'Futala Lake, Nagpur', cost: 120, category: 'Activities', lat: 21.1458, lng: 79.0511 },
-    { id: '3', day: 1, time: '03:00 PM', title: 'Haldirams, Nagpur', cost: 80, category: 'Food', lat: 21.1605, lng: 79.0795 },
+    { id: '1', day: 1, time: '09:00 AM', title: 'Central Station, Nagpur', cost: 500, category: 'Transport', lat: 21.1523, lng: 79.0882 },
+    { id: '2', day: 1, time: '11:30 AM', title: 'Futala Lake, Nagpur', cost: 1200, category: 'Activities', lat: 21.1458, lng: 79.0511 },
+    { id: '3', day: 1, time: '03:00 PM', title: 'Haldirams, Nagpur', cost: 800, category: 'Food', lat: 21.1605, lng: 79.0795 },
   ],
 
   chatHistory: [{ role: 'model', parts: [{ text: "Hello! I am your AI Travel Assistant powered by Gemini. Ask me to analyze your budget health, suggest activities, or breakdown your expenses!" }] }],
