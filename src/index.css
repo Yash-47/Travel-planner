@@ -1,0 +1,44 @@
+@import "leaflet/dist/leaflet.css";
+@import "tailwindcss";
+
+@theme {
+  --animate-spin-slow: spin 12s linear infinite;
+  --animate-fadeIn: fadeIn 0.3s ease-out forwards;
+
+  @keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(4px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+}
+
+/* Core resets to eliminate Vite boilerplate background conflicts */
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #0b0f19 !important; /* Premium deep midnight blue */
+  color: #f8fafc !important;            /* High-contrast crisp off-white text */
+  font-family: system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: -1000;
+  }
+}
+
+/* Custom premium scrollbars for dashboard grid elements */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #111827;
+}
+::-webkit-scrollbar-thumb {
+  background: #374151;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #4b5563;
+}

@@ -1,0 +1,52 @@
+                
+namex                     
+,narwhals                 
+,nbclient                  
+,nbconvert                
+,nbformat                 
+,nest-asyncio             
+,networkx                 
+,notebook                  
+,notebook_shim             
+,numpy                     
+,opencv-python             
+,opencv-python-headless    
+,openpyxl                  
+,opt_einsum                
+,optree                   
+,overrides                
+,packaging               
+,pandas                    
+,pandocfilters            
+,parso                  
+,partd                  
+,pillow                 
+,pip                       
+,platformdirs             
+,plotly                    
+,prometheus_client         
+,prompt_toolkit            
+,protobuf                  
+,psutil                    
+,pure_eval                 
+,pycparser               
+,Pygments                
+,pyparsing               
+,python-dateutil           
+,python-json-logger        
+,pytz                    
+,pywin32                   
+,pywinpty               
+,PyYAML                  
+,pyzmq                    
+,referencing               
+requests ,                
+rfc3339-validator ,       
+rfc3986-validator,        
+rfc3987-syntax ,           
+rich ,                    
+rpds-py ,                  
+scikit-image ,             
+scikit-learn ,             
+scipy ,                    
+seaborn 
